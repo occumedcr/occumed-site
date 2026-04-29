@@ -14,7 +14,7 @@
             --dorado: #ae8539;
             --dorado-claro: #cba766;
             --beige: #eeeadf;
-            --blanco: #ffffff;
+            --blanco: #ffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,7 +28,7 @@
             background: #fff;
         }
 
-        /* ===== NAVBAR ===== */
+        /* ==== NAVBAR ==== */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -92,7 +92,7 @@
             box-shadow: 0 8px 20px rgba(174,133,57,0.4);
         }
 
-        /* ===== HERO ===== */
+        /* ==== HERO ==== */
         #hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #1a2240 0%, var(--azul-oscuro) 50%, #3a4a6b 100%);
@@ -292,7 +292,7 @@
             50% { transform: translateX(-50%) translateY(8px); }
         }
 
-        /* ===== SECCIONES GENERALES ===== */
+        /* ==== SECCIONES GENERALES ==== */
         section { padding: 100px 60px; }
 
         .section-label {
@@ -329,7 +329,7 @@
             border-radius: 2px;
         }
 
-        /* ===== QUIÉNES SOMOS ===== */
+        /* ==== QUIÉNES SOMOS ==== */
         #nosotros {
             background: var(--blanco);
         }
@@ -481,7 +481,7 @@
             color: rgba(255,255,255,0.9);
         }
 
-        /* ===== SERVICIOS ===== */
+        /* ==== SERVICIOS ==== */
         #servicios {
             background: linear-gradient(180deg, #f8f9fb 0%, #eef0f5 100%);
         }
@@ -609,7 +609,7 @@
             line-height: 1.7;
         }
 
-        /* ===== CLIENTES ===== */
+        /* ==== CLIENTES ==== */
         #clientes {
             background: var(--blanco);
             padding: 80px 60px;
@@ -650,7 +650,7 @@
             border-color: var(--azul-oscuro);
         }
 
-        /* ===== POR QUÉ OCCUMED ===== */
+        /* ==== POR QUÉ OCCUMED ==== */
         #porque {
             background: linear-gradient(135deg, var(--azul-oscuro) 0%, #1e263d 100%);
             position: relative;
@@ -737,7 +737,7 @@
             line-height: 1.7;
         }
 
-        /* ===== CONTACTO ===== */
+        /* ==== CONTACTO ==== */
         #contacto {
             background: var(--beige);
         }
@@ -892,7 +892,7 @@
             box-shadow: 0 12px 30px rgba(174,133,57,0.35);
         }
 
-        /* ===== FOOTER ===== */
+        /* ==== FOOTER ==== */
         footer {
             background: #111827;
             color: rgba(255,255,255,0.6);
@@ -955,7 +955,7 @@
             font-size: 13px;
         }
 
-        /* ===== ANIMACIONES SCROLL ===== */
+        /* ==== ANIMACIONES SCROLL ==== */
         .reveal {
             opacity: 0;
             transform: translateY(35px);
@@ -982,9 +982,136 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== HIDDEN TABS ===== */
+        /* ==== HIDDEN TABS ==== */
         .tab-content { display: none; }
         .tab-content.active { display: grid; }
+
+        /* ==== HAMBURGER MENU ==== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ==== RESPONSIVE ==== */
+        @media (max-width: 768px) {
+
+            /* Navbar */
+            nav { padding: 16px 20px; }
+            nav.scrolled { padding: 12px 20px; }
+
+            .hamburger { display: flex; }
+
+            .nav-links {
+                position: fixed;
+                top: 0; right: -100%;
+                width: 75%;
+                height: 100vh;
+                background: rgba(27, 36, 60, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: right 0.4s ease;
+                z-index: 1050;
+            }
+
+            .nav-links.open { right: 0; }
+
+            .nav-links a {
+                font-size: 16px;
+                letter-spacing: 2px;
+            }
+
+            .nav-cta {
+                padding: 12px 30px !important;
+            }
+
+            /* Secciones generales */
+            section { padding: 70px 20px; }
+
+            /* Hero */
+            .hero-content { padding: 0 20px; }
+            .hero-title { font-size: clamp(34px, 9vw, 52px); }
+            .hero-desc { font-size: 15px; }
+            .hero-btns { flex-direction: column; align-items: center; gap: 14px; }
+            .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
+
+            /* Nosotros */
+            .nosotros-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats-row { grid-template-columns: 1fr 1fr; gap: 14px; }
+            .stats-row .stat-card:last-child { grid-column: 1 / -1; }
+
+            /* Servicios */
+            .services-grid { grid-template-columns: 1fr !important; }
+            #tab-wellness { grid-template-columns: 1fr !important; }
+
+            .tabs { gap: 8px; }
+            .tab-btn { font-size: 12px; padding: 9px 16px; }
+
+            /* Clientes */
+            #clientes { padding: 60px 20px; }
+            .clients-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+            /* Por qué OccuMED */
+            .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
+
+            /* Contacto */
+            .contacto-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contacto-info h2 { font-size: 26px; }
+
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+
+            .contact-form { padding: 30px 20px; }
+
+            /* Footer */
+            footer { padding: 40px 20px 25px; }
+
+            .footer-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .footer-links { flex-wrap: wrap; gap: 16px; }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .clients-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: 1fr; }
+            .stats-row .stat-card:last-child { grid-column: auto; }
+        }
     </style>
 </head>
 <body>
@@ -994,13 +1121,18 @@
         <div class="nav-logo">
             <img src="logo.png" alt="OccuMED Logo">
         </div>
-        <ul class="nav-links">
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#clientes">Clientes</a></li>
-            <li><a href="#porque">¿Por qué OccuMED?</a></li>
-            <li><a href="#contacto" class="nav-cta">Contáctenos</a></li>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
+            <li><a href="#servicios" onclick="closeMenu()">Servicios</a></li>
+            <li><a href="#clientes" onclick="closeMenu()">Clientes</a></li>
+            <li><a href="#porque" onclick="closeMenu()">¿Por qué OccuMED?</a></li>
+            <li><a href="#contacto" class="nav-cta" onclick="closeMenu()">Contáctenos</a></li>
         </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <!-- HERO -->
@@ -1045,16 +1177,16 @@
 
                 <div class="stats-row">
                     <div class="stat-card reveal reveal-delay-1">
-                        <div class="stat-num">13+</div>
-                        <div class="stat-label">Años de Experiencia</div>
+                    <div class="stat-num">13+</div>
+                    <div class="stat-label">Años de Experiencia</div>
                     </div>
                     <div class="stat-card reveal reveal-delay-2">
-                        <div class="stat-num">100%</div>
-                        <div class="stat-label">Capital Costarricense</div>
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Capital Costarricense</div>
                     </div>
                     <div class="stat-card reveal reveal-delay-3">
-                        <div class="stat-num" style="font-size: 22px; padding-top: 6px;">A la Medida</div>
-                        <div class="stat-label">Servicios Personalizados</div>
+                    <div class="stat-num" style="font-size: 22px; padding-top: 6px;">A la Medida</div>
+                    <div class="stat-label">Servicios Personalizados</div>
                     </div>
                 </div>
             </div>
@@ -1063,30 +1195,30 @@
                 <div class="visual-card">
                     <div class="visual-card-title">Nuestros <span>pilares</span></div>
                     <div class="pillars">
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-heartbeat"></i></div>
-                            <div class="pillar-text">Salud Física y Mental Integral</div>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-building"></i></div>
-                            <div class="pillar-text">Servicios In Situ en su Empresa</div>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-star-of-life"></i></div>
-                            <div class="pillar-text">Ferias de Salud Empresarial</div>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-spa"></i></div>
-                            <div class="pillar-text">Wellness Empresarial</div>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-users"></i></div>
-                            <div class="pillar-text">Equipo Profesional Certificado</div>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
-                            <div class="pillar-text">Reducción de Ausentismo</div>
-                        </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div class="pillar-text">Salud Física y Mental Integral</div>
+                    </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-building"></i></div>
+                    <div class="pillar-text">Servicios In Situ en su Empresa</div>
+                    </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-star-of-life"></i></div>
+                    <div class="pillar-text">Ferias de Salud Empresarial</div>
+                    </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-spa"></i></div>
+                    <div class="pillar-text">Wellness Empresarial</div>
+                    </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-users"></i></div>
+                    <div class="pillar-text">Equipo Profesional Certificado</div>
+                    </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="pillar-text">Reducción de Ausentismo</div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -1262,29 +1394,29 @@
                 <div class="benefit-card reveal">
                     <div class="benefit-icon"><i class="fas fa-ear-listen"></i></div>
                     <div class="benefit-text">
-                        <h4>Te Escuchamos Primero</h4>
-                        <p>Nos tomamos el tiempo de entender a fondo las necesidades de su empresa antes de proponer cualquier solución. Su realidad es nuestro punto de partida.</p>
+                    <h4>Te Escuchamos Primero</h4>
+                    <p>Nos tomamos el tiempo de entender a fondo las necesidades de su empresa antes de proponer cualquier solución. Su realidad es nuestro punto de partida.</p>
                     </div>
                 </div>
                 <div class="benefit-card reveal reveal-delay-1">
                     <div class="benefit-icon"><i class="fas fa-sliders-h"></i></div>
                     <div class="benefit-text">
-                        <h4>Propuestas a la Medida</h4>
-                        <p>Diseñamos planes de salud adaptados a las necesidades y al presupuesto de cada empresa. No hay soluciones genéricas: cada cliente recibe una propuesta única.</p>
+                    <h4>Propuestas a la Medida</h4>
+                    <p>Diseñamos planes de salud adaptados a las necesidades y al presupuesto de cada empresa. No hay soluciones genéricas: cada cliente recibe una propuesta única.</p>
                     </div>
                 </div>
                 <div class="benefit-card reveal reveal-delay-2">
                     <div class="benefit-icon"><i class="fas fa-heart"></i></div>
                     <div class="benefit-text">
-                        <h4>Servicio Cercano y Personalizado</h4>
-                        <p>Mantenemos una relación directa y continua con nuestros clientes. Somos un aliado de confianza, no solo un proveedor de servicios.</p>
+                    <h4>Servicio Cercano y Personalizado</h4>
+                    <p>Mantenemos una relación directa y continua con nuestros clientes. Somos un aliado de confianza, no solo un proveedor de servicios.</p>
                     </div>
                 </div>
                 <div class="benefit-card reveal reveal-delay-3">
                     <div class="benefit-icon"><i class="fas fa-award"></i></div>
                     <div class="benefit-text">
-                        <h4>Respaldo Ético y Profesional</h4>
-                        <p>Todos nuestros profesionales están inscritos y reconocidos por sus respectivos Colegios Profesionales, garantizando idoneidad técnica y ética.</p>
+                    <h4>Respaldo Ético y Profesional</h4>
+                    <p>Todos nuestros profesionales están inscritos y reconocidos por sus respectivos Colegios Profesionales, garantizando idoneidad técnica y ética.</p>
                     </div>
                 </div>
             </div>
@@ -1302,32 +1434,32 @@
 
                 <div class="contact-items">
                     <div class="contact-item reveal">
-                        <div class="contact-item-icon"><i class="fas fa-user-md"></i></div>
-                        <div class="contact-item-text">
-                            <strong>Gerente General</strong>
-                            Dr. Gustavo Segura Montero
-                        </div>
+                    <div class="contact-item-icon"><i class="fas fa-user-md"></i></div>
+                    <div class="contact-item-text">
+                    <strong>Gerente General</strong>
+                    Dr. Gustavo Segura Montero
+                    </div>
                     </div>
                     <div class="contact-item reveal reveal-delay-1">
-                        <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
-                        <div class="contact-item-text">
-                            <strong>Teléfono</strong>
-                            7016-0498 / 2285-3167
-                        </div>
+                    <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+                    <div class="contact-item-text">
+                    <strong>Teléfono</strong>
+                    7016-0498 / 2285-3167
+                    </div>
                     </div>
                     <div class="contact-item reveal reveal-delay-2">
-                        <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-item-text">
-                            <strong>Correo</strong>
-                            info@occumedcr.com
-                        </div>
+                    <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-item-text">
+                    <strong>Correo</strong>
+                    info@occumedcr.com
+                    </div>
                     </div>
                     <div class="contact-item reveal reveal-delay-3">
-                        <div class="contact-item-icon"><i class="fas fa-globe"></i></div>
-                        <div class="contact-item-text">
-                            <strong>Sitio Web</strong>
-                            www.occumedcr.net
-                        </div>
+                    <div class="contact-item-icon"><i class="fas fa-globe"></i></div>
+                    <div class="contact-item-text">
+                    <strong>Sitio Web</strong>
+                    www.occumedcr.net
+                    </div>
                     </div>
                 </div>
             </div>
@@ -1336,12 +1468,12 @@
                 <p class="form-title">Solicitar información</p>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" placeholder="Su nombre">
+                    <label>Nombre</label>
+                    <input type="text" placeholder="Su nombre">
                     </div>
                     <div class="form-group">
-                        <label>Empresa</label>
-                        <input type="text" placeholder="Nombre de la empresa">
+                    <label>Empresa</label>
+                    <input type="text" placeholder="Nombre de la empresa">
                     </div>
                 </div>
                 <div class="form-group">
@@ -1351,14 +1483,14 @@
                 <div class="form-group">
                     <label>Servicio de Interés</label>
                     <select>
-                        <option value="">Seleccione un servicio...</option>
-                        <option>Wellness Empresarial</option>
-                        <option>Medicina General In Situ</option>
-                        <option>Psicología</option>
-                        <option>Ferias de Salud</option>
-                        <option>Valoraciones Pre-Empleo</option>
-                        <option>Salud Ocupacional</option>
-                        <option>Otro servicio</option>
+                    <option value="">Seleccione un servicio...</option>
+                    <option>Wellness Empresarial</option>
+                    <option>Medicina General In Situ</option>
+                    <option>Psicología</option>
+                    <option>Ferias de Salud</option>
+                    <option>Valoraciones Pre-Empleo</option>
+                    <option>Salud Ocupacional</option>
+                    <option>Otro servicio</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -1398,6 +1530,19 @@
             const nav = document.getElementById('navbar');
             nav.classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Hamburger menu
+        function toggleMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        }
+
+        function closeMenu() {
+            document.getElementById('hamburger').classList.remove('open');
+            document.getElementById('navLinks').classList.remove('open');
+        }
 
         // Scroll reveal
         const observer = new IntersectionObserver((entries) => {
