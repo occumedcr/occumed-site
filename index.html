@@ -892,125 +892,6 @@
             box-shadow: 0 12px 30px rgba(174,133,57,0.35);
         }
 
-        /* ==== CTA BANNER ==== */
-        #cta-banner {
-            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #1e263d 100%);
-            padding: 90px 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #cta-banner::before {
-            content: '';
-            position: absolute;
-            top: -80px; right: -80px;
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(174,133,57,0.15) 0%, transparent 70%);
-        }
-
-        #cta-banner::after {
-            content: '';
-            position: absolute;
-            bottom: -60px; left: -60px;
-            width: 250px; height: 250px;
-            background: radial-gradient(circle, rgba(147,158,186,0.12) 0%, transparent 70%);
-        }
-
-        .cta-inner {
-            max-width: 750px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-inner h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(26px, 4vw, 40px);
-            font-weight: 800;
-            color: white;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .cta-inner h2 span {
-            background: linear-gradient(135deg, var(--dorado), #d4af37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .cta-inner p {
-            font-size: 17px;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.8;
-            margin-bottom: 40px;
-        }
-
-        .cta-btns {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* ==== FORMULARIO NETLIFY ==== */
-        #success-msg {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        #success-msg.show { display: flex; }
-
-        .success-icon {
-            width: 72px; height: 72px;
-            background: rgba(174,133,57,0.15);
-            border: 2px solid var(--dorado);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            color: var(--dorado);
-            margin-bottom: 20px;
-        }
-
-        #success-msg h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--azul-oscuro);
-            margin-bottom: 10px;
-        }
-
-        #success-msg p { color: var(--azul-medio); font-size: 15px; }
-
-        #reset-btn {
-            margin-top: 20px;
-            background: none;
-            border: none;
-            color: var(--dorado);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            cursor: pointer;
-            letter-spacing: 0.5px;
-        }
-
-        #reset-btn:hover { text-decoration: underline; }
-
-        #error-msg {
-            display: none;
-            color: #b91c1c;
-            font-size: 13px;
-            font-weight: 600;
-            text-align: center;
-            margin-top: 10px;
-        }
-
         /* ==== FOOTER ==== */
         footer {
             background: #111827;
@@ -1086,6 +967,14 @@
             transform: translateY(0);
         }
 
+        /* Fallback para mobile: si IntersectionObserver no funciona bien */
+        @media (max-width: 768px) {
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
@@ -1104,133 +993,6 @@
         /* ==== HIDDEN TABS ==== */
         .tab-content { display: none; }
         .tab-content.active { display: grid; }
-
-        /* ==== HAMBURGER MENU ==== */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 5px;
-            z-index: 1100;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background: white;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* ==== RESPONSIVE ==== */
-        @media (max-width: 768px) {
-
-            /* Navbar */
-            nav { padding: 16px 20px; }
-            nav.scrolled { padding: 12px 20px; }
-
-            .hamburger { display: flex; }
-
-            .nav-links {
-                position: fixed;
-                top: 0; right: -100%;
-                width: 75%;
-                height: 100vh;
-                background: rgba(27, 36, 60, 0.98);
-                backdrop-filter: blur(15px);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 30px;
-                transition: right 0.4s ease;
-                z-index: 1050;
-            }
-
-            .nav-links.open { right: 0; }
-
-            .nav-links a {
-                font-size: 16px;
-                letter-spacing: 2px;
-            }
-
-            .nav-cta {
-                padding: 12px 30px !important;
-            }
-
-            /* Secciones generales */
-            section { padding: 70px 20px; }
-
-            /* Hero */
-            .hero-content { padding: 0 20px; }
-            .hero-title { font-size: clamp(34px, 9vw, 52px); }
-            .hero-desc { font-size: 15px; }
-            .hero-btns { flex-direction: column; align-items: center; gap: 14px; }
-            .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
-
-            /* Nosotros */
-            .nosotros-inner {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .stats-row { grid-template-columns: 1fr 1fr; gap: 14px; }
-            .stats-row .stat-card:last-child { grid-column: 1 / -1; }
-
-            /* Servicios */
-            .services-grid { grid-template-columns: 1fr !important; }
-            #tab-wellness { grid-template-columns: 1fr !important; }
-
-            .tabs { gap: 8px; }
-            .tab-btn { font-size: 12px; padding: 9px 16px; }
-
-            /* Clientes */
-            #clientes { padding: 60px 20px; }
-            .clients-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-
-            /* Por qué OccuMED */
-            .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
-
-            /* Contacto */
-            .contacto-inner {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .contacto-info h2 { font-size: 26px; }
-
-            .form-row { grid-template-columns: 1fr; gap: 0; }
-
-            .contact-form { padding: 30px 20px; }
-
-            /* Footer */
-            footer { padding: 40px 20px 25px; }
-
-            .footer-top {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-
-            .footer-links { flex-wrap: wrap; gap: 16px; }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .clients-grid { grid-template-columns: 1fr; }
-            .stats-row { grid-template-columns: 1fr; }
-            .stats-row .stat-card:last-child { grid-column: auto; }
-        }
     </style>
 </head>
 <body>
@@ -1240,18 +1002,13 @@
         <div class="nav-logo">
             <img src="logo.png" alt="OccuMED Logo">
         </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
-            <li><a href="#servicios" onclick="closeMenu()">Servicios</a></li>
-            <li><a href="#clientes" onclick="closeMenu()">Clientes</a></li>
-            <li><a href="#porque" onclick="closeMenu()">¿Por qué OccuMED?</a></li>
-            <li><a href="#contacto" class="nav-cta" onclick="closeMenu()">Contáctenos</a></li>
+        <ul class="nav-links">
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#porque">¿Por qué OccuMED?</a></li>
+            <li><a href="#contacto" class="nav-cta">Contáctenos</a></li>
         </ul>
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
     </nav>
 
     <!-- HERO -->
@@ -1265,12 +1022,12 @@
         <div class="hero-content">
             <img src="logo.png" alt="OccuMED" style="height: 80px; width: auto; margin-bottom: 35px; filter: brightness(0) invert(1); animation: fadeInDown 0.8s ease forwards;">
             <h1 class="hero-title">
-                Su Aliado Estratégico en<br>
-                <span class="gold">Salud Empresarial</span>
+                Su empresa,<br>
+                <span class="gold">más saludable.</span>
             </h1>
             <p class="hero-sub">Occupational Medical Services</p>
             <p class="hero-desc">
-                No somos una clínica tradicional. Somos el socio que integra bienestar, prevención y productividad directamente en el ADN de su empresa.
+                No somos una clínica. Somos su aliado estratégico en salud empresarial. Llevamos bienestar físico y mental directamente a sus colaboradores.
             </p>
             <div class="hero-btns">
                 <a href="#servicios" class="btn-primary">Ver Servicios</a>
@@ -1484,7 +1241,7 @@
         <div class="clientes-inner">
             <p class="section-label reveal">Trayectoria comprobada</p>
             <h2 class="section-title reveal">Empresas que confían<br>en OccuMED</h2>
-            <div class="divider reveal" style="margin: 20px auto;"></div>
+            <div class="divider reveal"></div>
             <p class="section-desc reveal" style="margin: 0 auto;">Hemos consolidado relaciones a largo plazo con líderes del mercado costarricense en distintos sectores.</p>
 
             <div class="clients-grid">
@@ -1542,20 +1299,6 @@
         </div>
     </section>
 
-    <!-- CTA BANNER -->
-    <section id="cta-banner">
-        <div class="cta-inner">
-            <h2 class="reveal">¿Listo para transformar la<br><span>salud de su empresa?</span></h2>
-            <p class="reveal reveal-delay-1">Diseñamos proyectos que se ajustan a su realidad operativa y financiera. Escríbanos hoy y reciba una propuesta sin costo.</p>
-            <div class="cta-btns reveal reveal-delay-2">
-                <a href="#contacto" class="btn-primary">Solicitar Propuesta Gratuita</a>
-                <a href="https://wa.me/50670160498" target="_blank" class="btn-secondary" style="display:flex; align-items:center; gap:8px;">
-                    <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- CONTACTO -->
     <section id="contacto">
         <div class="contacto-inner">
@@ -1597,62 +1340,41 @@
                 </div>
             </div>
 
-
             <div class="contact-form reveal reveal-delay-2">
-
-                <!-- Mensaje de éxito -->
-                <div id="success-msg">
-                    <div class="success-icon"><i class="fas fa-check"></i></div>
-                    <h3>¡Mensaje Enviado!</h3>
-                    <p>Nuestro equipo le contactará a la brevedad posible.</p>
-                    <button id="reset-btn" type="button" onclick="resetForm()">Enviar otro mensaje</button>
+                <p class="form-title">Solicitar información</p>
+                <div class="form-row">
+                    <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" placeholder="Su nombre">
+                    </div>
+                    <div class="form-group">
+                    <label>Empresa</label>
+                    <input type="text" placeholder="Nombre de la empresa">
+                    </div>
                 </div>
-
-                <!-- Formulario Netlify -->
-                <form id="contact-form" name="contacto-occumed" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="contacto-occumed" />
-                    <div style="display:none"><label>No llenar: <input name="bot-field" /></label></div>
-
-                    <p class="form-title">Solicitar información</p>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Nombre</label>
-                            <input type="text" name="nombre" required placeholder="Su nombre">
-                        </div>
-                        <div class="form-group">
-                            <label>Empresa</label>
-                            <input type="text" name="empresa" required placeholder="Nombre de la empresa">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Correo Electrónico</label>
-                        <input type="email" name="email" required placeholder="correo@empresa.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Servicio de Interés</label>
-                        <select name="servicio">
-                            <option value="">Seleccione un servicio...</option>
-                            <option>Wellness Empresarial</option>
-                            <option>Medicina General In Situ</option>
-                            <option>Psicología</option>
-                            <option>Ferias de Salud</option>
-                            <option>Valoraciones Pre-Empleo</option>
-                            <option>Salud Ocupacional</option>
-                            <option>Otro servicio</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Mensaje</label>
-                        <textarea name="mensaje" required placeholder="Cuéntenos sobre su empresa y sus necesidades..."></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn" class="btn-submit">
-                        Enviar Solicitud &nbsp;<i class="fas fa-arrow-right"></i>
-                    </button>
-                    <p id="error-msg">Hubo un error al enviar. Por favor intente de nuevo.</p>
-                </form>
-            </div><!-- END NEW FORM -->
-
-            <!-- Formulario antiguo eliminado -->
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" placeholder="correo@empresa.com">
+                </div>
+                <div class="form-group">
+                    <label>Servicio de Interés</label>
+                    <select>
+                    <option value="">Seleccione un servicio...</option>
+                    <option>Wellness Empresarial</option>
+                    <option>Medicina General In Situ</option>
+                    <option>Psicología</option>
+                    <option>Ferias de Salud</option>
+                    <option>Valoraciones Pre-Empleo</option>
+                    <option>Salud Ocupacional</option>
+                    <option>Otro servicio</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mensaje</label>
+                    <textarea placeholder="Cuéntenos sobre su empresa y sus necesidades..."></textarea>
+                </div>
+                <button class="btn-submit">Enviar Solicitud  <i class="fas fa-arrow-right"></i></button>
+            </div>
         </div>
     </section>
 
@@ -1685,19 +1407,6 @@
             nav.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Hamburger menu
-        function toggleMenu() {
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-            hamburger.classList.toggle('open');
-            navLinks.classList.toggle('open');
-        }
-
-        function closeMenu() {
-            document.getElementById('hamburger').classList.remove('open');
-            document.getElementById('navLinks').classList.remove('open');
-        }
-
         // Scroll reveal
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1721,48 +1430,6 @@
                 el.classList.remove('visible');
                 setTimeout(() => el.classList.add('visible'), 50);
             });
-        }
-
-        // Formulario (Netlify)
-        const form = document.getElementById('contact-form');
-        const successMsg = document.getElementById('success-msg');
-        const errorMsg = document.getElementById('error-msg');
-        const submitBtn = document.getElementById('submit-btn');
-
-            e.preventDefault();
-            errorMsg.style.display = 'none';
-            submitBtn.innerHTML = 'Enviando...';
-            submitBtn.disabled = true;
-
-            const formData = new FormData(form);
-
-            try{
-                const response = await fetch('/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(formData).toString()
-                });
-
-                if(response.ok){
-                    form.style.display = 'none';
-                    successMsg.classList.add('show');
-                } else {
-                    throw new Error('Response not ok');
-                }
-            } catch(err) {
-                errorMsg.style.display = 'block';
-                submitBtn.innerHTML = 'Enviar Solicitud &nbsp;<i class="fas fa-arrow-right"></i>';
-                submitBtn.disabled = false;
-            }
-        });
-
-        function resetForm(){
-            form.reset();
-            form.style.display = 'block';
-            successMsg.classList.remove('show');
-            errorMsg.style.display = 'none';
-            submitBtn.innerHTML = 'Enviar Solicitud &nbsp;<i class="fas fa-arrow-right"></i>';
-            submitBtn.disabled = false;
         }
     </script>
 </body>
