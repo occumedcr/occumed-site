@@ -3,7 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OccuMED | Aliados en Salud Empresarial</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="OccuMED brinda servicios de medicina de empresa, salud ocupacional y bienestar empresarial en Costa Rica. Atención médica in situ, ferias de salud, psicología y más. Más de 13 años de experiencia.">
+    <meta name="keywords" content="medicina de empresa Costa Rica, salud ocupacional Costa Rica, salud empresarial, bienestar empresarial, médico de empresa, medicina ocupacional, ferias de salud, OccuMED">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta http-equiv="content-language" content="es-CR">
+    <link rel="canonical" href="https://occumedcr.net/">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="CR">
+    <meta name="geo.country" content="Costa Rica">
+    <meta name="geo.placename" content="San José, Costa Rica">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://occumedcr.net/">
+    <meta property="og:title" content="OccuMED | Medicina de Empresa y Salud Ocupacional en Costa Rica">
+    <meta property="og:description" content="Servicios de medicina de empresa, salud ocupacional y bienestar empresarial en Costa Rica. Atención médica directamente en su empresa.">
+    <meta property="og:image" content="https://occumedcr.net/logo.png">
+    <meta property="og:locale" content="es_CR">
+    <meta property="og:site_name" content="OccuMED">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OccuMED | Medicina de Empresa en Costa Rica">
+    <meta name="twitter:description" content="Servicios de medicina de empresa, salud ocupacional y bienestar empresarial. Más de 13 años en Costa Rica.">
+    <meta name="twitter:image" content="https://occumedcr.net/logo.png">
+    <title>OccuMED | Medicina de Empresa y Salud Ocupacional en Costa Rica</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -1526,6 +1554,7 @@
                 <button type="submit" id="submit-btn" class="btn-submit">Enviar Solicitud <i class="fas fa-arrow-right"></i></button>
                 </form>
 
+                <button class="btn-submit">Enviar Solicitud  <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </section>
@@ -1597,6 +1626,88 @@
                 setTimeout(() => el.classList.add('visible'), 50);
             });
         }
+    </script>
+
+    <!-- Schema Markup — MedicalOrganization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "OccuMED",
+      "alternateName": "Occupational Medical Services S.A.",
+      "description": "OccuMED brinda servicios de medicina de empresa, salud ocupacional y bienestar empresarial en Costa Rica. Atención médica in situ, ferias de salud, psicología laboral y más.",
+      "url": "https://occumedcr.net",
+      "logo": "https://occumedcr.net/logo.png",
+      "image": "https://occumedcr.net/logo.png",
+      "telephone": ["+506 7016-0498", "+506 2285-3167"],
+      "email": "info@occumedcr.com",
+      "foundingDate": "2013",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CR",
+        "addressRegion": "San José",
+        "addressLocality": "San José"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Costa Rica"
+      },
+      "medicalSpecialty": "OccupationalMedicine",
+      "availableService": [
+        { "@type": "MedicalTherapy", "name": "Medicina General In Situ" },
+        { "@type": "MedicalTherapy", "name": "Salud Ocupacional" },
+        { "@type": "MedicalTherapy", "name": "Medicina Ocupacional" },
+        { "@type": "MedicalTherapy", "name": "Psicología Empresarial" },
+        { "@type": "MedicalTherapy", "name": "Ferias de Salud Empresarial" },
+        { "@type": "MedicalTherapy", "name": "Valoraciones Pre-Empleo" },
+        { "@type": "MedicalTherapy", "name": "Enfermería Ocupacional" },
+        { "@type": "MedicalTherapy", "name": "Nutrición Empresarial" },
+        { "@type": "MedicalTherapy", "name": "Terapia Física" },
+        { "@type": "MedicalTherapy", "name": "Wellness Empresarial" }
+      ]
+    }
+    </script>
+
+    <!-- Schema Markup — FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es la medicina de empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La medicina de empresa es una especialidad médica que se ocupa de la salud de los trabajadores dentro de su entorno laboral. Un médico de empresa como los de OccuMED visita directamente las instalaciones para brindar atención preventiva y curativa a los colaboradores."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿En qué zonas de Costa Rica brindan sus servicios?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OccuMED brinda servicios de salud empresarial en todo Costa Rica. Nos desplazamos directamente a las instalaciones de su empresa, sin importar la ubicación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué incluye una feria de salud empresarial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestras ferias de salud empresarial incluyen múltiples especialistas en un solo evento: medicina general, laboratorio clínico, nutrición, terapia física, odontología, optometría y más, todo dentro de las instalaciones de su empresa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo lleva OccuMED en el mercado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OccuMED cuenta con más de 13 años de experiencia en medicina de empresa y salud ocupacional en Costa Rica, con clientes en sectores como tecnología, industria, servicios y construcción."
+          }
+        }
+      ]
+    }
     </script>
 </body>
 </html>
