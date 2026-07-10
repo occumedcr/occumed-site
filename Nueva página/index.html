@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="OccuMED brinda servicios de medicina de empresa, salud ocupacional y bienestar empresarial en Costa Rica. Atención médica in situ, ferias de salud, psicología y más. Más de 13 años de experiencia.">
+    <meta name="keywords" content="medicina de empresa Costa Rica, salud ocupacional Costa Rica, salud empresarial, bienestar empresarial, médico de empresa, medicina ocupacional, ferias de salud, OccuMED">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta http-equiv="content-language" content="es-CR">
+    <meta name="google-site-verification" content="yG2pGaFtzYhGPiSsjZxGWCjwosGJozhRNMw6nqe36_A" />
+    <link rel="canonical" href="https://occumedcr.net/">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="CR">
+    <meta name="geo.country" content="Costa Rica">
+    <meta name="geo.placename" content="San José, Costa Rica">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://occumedcr.net/">
+    <meta property="og:title" content="OccuMED | Medicina de Empresa y Salud Ocupacional en Costa Rica">
+    <meta property="og:description" content="Servicios de medicina de empresa, salud ocupacional y bienestar empresarial en Costa Rica. Atención médica directamente en su empresa.">
+    <meta property="og:image" content="https://occumedcr.net/logo.png">
+    <meta property="og:locale" content="es_CR">
+    <meta property="og:site_name" content="OccuMED">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OccuMED | Medicina de Empresa en Costa Rica">
+    <meta name="twitter:description" content="Servicios de medicina de empresa, salud ocupacional y bienestar empresarial. Más de 13 años en Costa Rica.">
+    <meta name="twitter:image" content="https://occumedcr.net/logo.png">
+    <title>OccuMED | Medicina de Empresa y Salud Ocupacional en Costa Rica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --azul-oscuro: #2b3755;
+            --azul-medio: #5a6277;
+            --azul-claro: #939eba;
+            --dorado: #ae8539;
+            --dorado-claro: #cba766;
+            --beige: #eeeadf;
+            --blanco: #ffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--azul-medio);
+            overflow-x: hidden;
+            background: #fff;
+        }
+
+        /* ==== NAVBAR ==== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(43, 55, 85, 0.97);
+            backdrop-filter: blur(10px);
+            padding: 12px 60px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        .nav-logo img {
+            height: 38px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: filter 0.4s ease;
+        }
+
+        nav.scrolled .nav-logo img {
+            filter: brightness(0) invert(1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--dorado); }
+
+        .nav-cta {
+            background: var(--dorado);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 25px;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--dorado-claro) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(174,133,57,0.4);
+        }
+
+        /* ==== HERO ==== */
+        #hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a2240 0%, var(--azul-oscuro) 50%, #3a4a6b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Triángulos decorativos animados */
+        .tri {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .tri-1 {
+            top: -80px; right: -80px;
+            width: 0; height: 0;
+            border-left: 400px solid transparent;
+            border-bottom: 400px solid rgba(174,133,57,0.08);
+            animation: floatTri 14s ease-in-out infinite;
+        }
+
+        .tri-2 {
+            bottom: -60px; left: -60px;
+            width: 0; height: 0;
+            border-right: 350px solid transparent;
+            border-top: 350px solid rgba(147,158,186,0.06);
+            animation: floatTri 18s ease-in-out infinite reverse;
+        }
+
+        .tri-3 {
+            top: 40%; right: 5%;
+            width: 0; height: 0;
+            border-left: 120px solid transparent;
+            border-right: 120px solid transparent;
+            border-bottom: 200px solid rgba(174,133,57,0.05);
+            animation: floatTri 10s ease-in-out infinite 2s;
+        }
+
+        .tri-4 {
+            top: 20%; left: 8%;
+            width: 0; height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 100px solid rgba(255,255,255,0.04);
+            animation: floatTri 12s ease-in-out infinite 1s;
+        }
+
+        @keyframes floatTri {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-25px) rotate(3deg); }
+            66% { transform: translateY(15px) rotate(-2deg); }
+        }
+
+        /* Partículas de puntos */
+        .dots-bg {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 30px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(174,133,57,0.2);
+            border: 1px solid rgba(174,133,57,0.4);
+            color: var(--dorado-claro);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(42px, 7vw, 72px);
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            animation: fadeInUp 0.9s ease 0.2s both;
+        }
+
+        .hero-title .gold {
+            background: linear-gradient(135deg, var(--dorado) 0%, #d4af37 50%, var(--dorado) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shineText 4s linear infinite, fadeInUp 0.9s ease 0.2s both;
+        }
+
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        .hero-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--azul-claro);
+            margin-bottom: 25px;
+            animation: fadeInUp 0.9s ease 0.3s both;
+        }
+
+        .hero-desc {
+            font-size: 17px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 45px;
+            animation: fadeInUp 0.9s ease 0.4s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.9s ease 0.5s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--dorado) 0%, #c49a45 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(174,133,57,0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(174,133,57,0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border: 1.5px solid rgba(255,255,255,0.35);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.4);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ==== SECCIONES GENERALES ==== */
+        section { padding: 100px 60px; }
+
+        .section-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--dorado);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            color: var(--azul-oscuro);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--azul-medio);
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .divider {
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--dorado), var(--dorado-claro));
+            margin: 20px 0;
+            border-radius: 2px;
+        }
+
+        /* ==== QUIÉNES SOMOS ==== */
+        #nosotros {
+            background: var(--blanco);
+        }
+
+        .nosotros-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .nosotros-text p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+
+        .nosotros-text strong { color: var(--azul-oscuro); }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #1e263d 100%);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -30px; right: -30px;
+            width: 80px; height: 80px;
+            background: rgba(174,133,57,0.15);
+            border-radius: 50%;
+        }
+
+        .stat-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dorado), #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .nosotros-visual {
+            position: relative;
+        }
+
+        .visual-card {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #3a4a6b 100%);
+            border-radius: 24px;
+            padding: 50px 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-card::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 200px; height: 200px;
+            background: rgba(174,133,57,0.12);
+            border-radius: 50%;
+        }
+
+        .visual-card::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; left: -40px;
+            width: 150px; height: 150px;
+            background: rgba(147,158,186,0.1);
+            border-radius: 50%;
+        }
+
+        .visual-card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .visual-card-title span { color: var(--dorado-claro); }
+
+        .pillars {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pillar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .pillar:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateX(5px);
+        }
+
+        .pillar-icon {
+            width: 40px; height: 40px;
+            background: rgba(174,133,57,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dorado-claro);
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .pillar-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* ==== SERVICIOS ==== */
+        #servicios {
+            background: linear-gradient(180deg, #f8f9fb 0%, #eef0f5 100%);
+        }
+
+        .servicios-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .servicios-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .servicios-header .section-desc {
+            margin: 0 auto;
+        }
+
+        .servicios-header .divider {
+            margin: 20px auto;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 1.5px solid rgba(43,55,85,0.12);
+            color: var(--azul-medio);
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--azul-oscuro);
+            color: white;
+            border-color: var(--azul-oscuro);
+            box-shadow: 0 8px 20px rgba(43,55,85,0.2);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--azul-oscuro), #1e263d);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(43,55,85,0.07);
+            box-shadow: 0 4px 20px rgba(43,55,85,0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--dorado), var(--dorado-claro));
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(43,55,85,0.12);
+            border-color: rgba(174,133,57,0.2);
+        }
+
+        .service-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .service-icon-wrap {
+            width: 52px; height: 52px;
+            background: linear-gradient(135deg, rgba(43,55,85,0.08), rgba(43,55,85,0.04));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            font-size: 22px;
+            color: var(--azul-oscuro);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon-wrap {
+            background: linear-gradient(135deg, var(--dorado), var(--dorado-claro));
+            color: white;
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--azul-oscuro);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* ==== POR QUÉ OCCUMED ==== */
+        #porque {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #1e263d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #porque::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(174,133,57,0.12) 0%, transparent 70%);
+            animation: pulseGlow 6s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .porque-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .porque-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .porque-header .section-label { color: var(--dorado-claro); }
+        .porque-header .section-title { color: white; }
+        .porque-header .divider { margin: 20px auto; }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background: rgba(255,255,255,0.09);
+            transform: translateY(-4px);
+            border-color: rgba(174,133,57,0.3);
+        }
+
+        .benefit-icon {
+            width: 50px; height: 50px;
+            background: rgba(174,133,57,0.15);
+            border: 1px solid rgba(174,133,57,0.3);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dorado-claro);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .benefit-text h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .benefit-text p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        /* ==== CONTACTO ==== */
+        #contacto {
+            background: var(--beige);
+        }
+
+        .contacto-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contacto-info h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--azul-oscuro);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .contacto-info h2 span { color: var(--dorado); }
+
+        .contacto-info p {
+            font-size: 15px;
+            color: var(--azul-medio);
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-item-icon {
+            width: 42px; height: 42px;
+            background: var(--azul-oscuro);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dorado-claro);
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-item-text {
+            font-size: 14px;
+            color: var(--azul-oscuro);
+        }
+
+        .contact-item-text strong {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--azul-medio);
+            margin-bottom: 2px;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 45px 40px;
+            box-shadow: 0 20px 50px rgba(43,55,85,0.1);
+        }
+
+        .form-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--azul-oscuro);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--azul-medio);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid rgba(43,55,85,0.12);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 15px;
+            color: var(--azul-oscuro);
+            background: #fafafa;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--dorado);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(174,133,57,0.1);
+        }
+
+        .form-group textarea { resize: vertical; min-height: 110px; }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, #1e263d 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--dorado) 0%, #c49a45 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(174,133,57,0.35);
+        }
+
+        /* ==== FOOTER ==== */
+        footer {
+            background: #111827;
+            color: rgba(255,255,255,0.6);
+            padding: 50px 60px 30px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 25px;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        .footer-logo span { color: var(--dorado); }
+
+        .footer-tagline {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin-top: 4px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--dorado-claro); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        /* ==== ANIMACIONES SCROLL ==== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Fallback para mobile: si IntersectionObserver no funciona bien */
+        @media (max-width: 768px) {
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==== HIDDEN TABS ==== */
+        .tab-content { display: none; }
+        .tab-content.active { display: grid; }
+
+        /* ==== HAMBURGER MENU ==== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ==== MOBILE MENU OVERLAY ==== */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 34, 64, 0.98);
+            z-index: 1050;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        .mobile-menu a:hover { color: var(--dorado-claro); }
+        .mobile-menu .mobile-cta {
+            background: var(--dorado);
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* ==== RESPONSIVE ==== */
+        @media (max-width: 900px) {
+
+            /* Navbar */
+            nav { padding: 16px 24px; }
+            nav.scrolled { padding: 12px 24px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+
+            /* Secciones */
+            section { padding: 70px 24px; }
+
+            /* Hero */
+            .hero-title { font-size: 38px; }
+            .hero-desc { font-size: 15px; }
+            .hero-btns { flex-direction: column; align-items: center; gap: 14px; }
+            .btn-primary, .btn-secondary { width: 100%; max-width: 300px; text-align: center; }
+
+            /* Nosotros */
+            .nosotros-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .stats-row { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+            .stat-num { font-size: 28px; }
+
+            /* Servicios */
+            .services-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .tabs { gap: 8px; }
+            .tab-btn { font-size: 12px; padding: 9px 16px; }
+
+            /* Por qué OccuMED */
+            .benefits-grid { grid-template-columns: 1fr; }
+
+            /* Contacto */
+            .contacto-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contacto-info h2 { font-size: 28px; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-form { padding: 30px 22px; }
+
+            /* Footer */
+            footer { padding: 40px 24px 24px; }
+            .footer-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .footer-links { flex-wrap: wrap; gap: 16px; }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 30px; }
+            .section-title { font-size: 24px; }
+            .stats-row { grid-template-columns: 1fr; }
+            .visual-card { padding: 30px 22px; }
+            .visual-card-title { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
+        <a href="#servicios" onclick="closeMobileMenu()">Servicios</a>
+        <a href="#porque" onclick="closeMobileMenu()">¿Por qué OccuMED?</a>
+        <a href="#contacto" class="mobile-cta" onclick="closeMobileMenu()">Contáctenos</a>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="nav-logo">
+            <img src="logo.png" alt="OccuMED Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#porque">¿Por qué OccuMED?</a></li>
+            <li><a href="#contacto" class="nav-cta">Contáctenos</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="dots-bg"></div>
+        <div class="tri tri-1"></div>
+        <div class="tri tri-2"></div>
+        <div class="tri tri-3"></div>
+        <div class="tri tri-4"></div>
+
+        <div class="hero-content">
+            <img src="logo.png" alt="OccuMED" style="height: 80px; width: auto; margin-bottom: 35px; filter: brightness(0) invert(1); animation: fadeInDown 0.8s ease forwards;">
+            <h1 class="hero-title">
+                Su empresa,<br>
+                <span class="gold">más saludable.</span>
+            </h1>
+            <p class="hero-sub">Occupational Medical Services</p>
+            <p class="hero-desc">
+                No somos una clínica. Somos su aliado estratégico en salud empresarial. Llevamos bienestar físico y mental directamente a sus colaboradores.
+            </p>
+            <div class="hero-btns">
+                <a href="#servicios" class="btn-primary">Ver Servicios</a>
+                <a href="#contacto" class="btn-secondary">Solicitar Información</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Descubrir</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section id="nosotros">
+        <div class="nosotros-inner">
+            <div class="nosotros-text">
+                <p class="section-label reveal">Nuestra Carta de Presentación</p>
+                <h2 class="section-title reveal">Salud empresarial <br>con propósito</h2>
+                <div class="divider reveal"></div>
+                <p class="reveal" style="text-align: justify;">En <strong>OccuMED</strong> creemos que el activo más valioso de cualquier organización es su talento humano. Por eso nos especializamos en diseñar e implementar servicios integrales de salud que previenen enfermedades laborales y elevan el bienestar de sus colaboradores.</p>
+                <p class="reveal reveal-delay-1" style="text-align: justify;">Nos caracterizamos por <strong>escuchar a nuestros clientes</strong> y crear propuestas que se adaptan a las necesidades y al presupuesto de cada empresa. Nuestro servicio es <strong>personalizado y cercano</strong>: nos convertimos en su aliado estratégico, reduciendo el ausentismo, aumentando la productividad y generando un clima laboral donde el trabajador se siente valorado y protegido.</p>
+
+                <div class="stats-row">
+                    <div class="stat-card reveal reveal-delay-1">
+                    <div class="stat-num">13+</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                    <div class="stat-card reveal reveal-delay-2">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Capital Costarricense</div>
+                    </div>
+                    <div class="stat-card reveal reveal-delay-3">
+                    <div class="stat-num" style="font-size: 22px; padding-top: 6px;">A la Medida</div>
+                    <div class="stat-label">Servicios Personalizados</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nosotros-visual reveal reveal-delay-2">
+                <div class="visual-card">
+                    <div class="visual-card-title">Nuestros <span>pilares</span></div>
+                    <div class="pillars">
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div class="pillar-text">Salud Física y Mental Integral</div>
+                    </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-building"></i></div>
+                    <div class="pillar-text">Servicios In Situ en su Empresa</div>
+                    </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-star-of-life"></i></div>
+                    <div class="pillar-text">Ferias de Salud Empresarial</div>
+                    </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-spa"></i></div>
+                    <div class="pillar-text">Wellness Empresarial</div>
+                    </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-users"></i></div>
+                    <div class="pillar-text">Equipo Profesional Certificado</div>
+                    </div>
+                    <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="pillar-text">Reducción de Ausentismo</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <div class="servicios-inner">
+            <div class="servicios-header">
+                <p class="section-label reveal">Lo que ofrecemos</p>
+                <h2 class="section-title reveal">Servicios diseñados<br>para su empresa</h2>
+                <div class="divider reveal"></div>
+                <p class="section-desc reveal">Contamos con un equipo multidisciplinario que lleva atención médica de calidad directamente a sus instalaciones.</p>
+            </div>
+
+            <div class="tabs reveal">
+                <button class="tab-btn active" onclick="showTab('wellness')">Wellness Empresarial</button>
+                <button class="tab-btn" onclick="showTab('complementarios')">Servicios In Situ</button>
+                <button class="tab-btn" onclick="showTab('especializados')">Servicios Especializados</button>
+            </div>
+
+            <!-- Tab 1: Wellness -->
+            <div id="tab-wellness" class="tab-content services-grid active" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap"><i class="fas fa-stethoscope"></i></div>
+                    <h3>Medicina General</h3>
+                    <p>Médicos con experiencia en medicina laboral. Consulta presencial en sus instalaciones o atención virtual continua.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon-wrap"><i class="fas fa-brain"></i></div>
+                    <h3>Psicología</h3>
+                    <p>Consultas presenciales o virtuales para el cuidado de la salud mental, manejo de estrés y prevención del Burnout.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon-wrap"><i class="fas fa-clipboard-check"></i></div>
+                    <h3>Valoraciones Pre-Empleo</h3>
+                    <p>Evaluaciones exhaustivas previas a la contratación para garantizar que el candidato está en condiciones óptimas.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-3">
+                    <div class="service-icon-wrap"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>Plan Anual de Salud</h3>
+                    <p>Plan estratégico anual basado en la OMS con campañas preventivas y charlas educativas programadas.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon-wrap"><i class="fas fa-spa"></i></div>
+                    <h3>Sesiones de Yoga</h3>
+                    <p>Clases presenciales o virtuales de yoga orientadas al estiramiento, meditación y relajación del personal.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon-wrap"><i class="fas fa-star-of-life"></i></div>
+                    <h3>Ferias de Salud</h3>
+                    <p>Eventos integrales con múltiples especialistas y servicios diagnósticos a precios preferenciales en su empresa.</p>
+                </div>
+            </div>
+
+            <!-- Tab 2: In Situ -->
+            <div id="tab-complementarios" class="tab-content services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap"><i class="fas fa-user-nurse"></i></div>
+                    <h3>Enfermería Ocupacional</h3>
+                    <p>Apoyo clínico continuo, control de signos vitales y atención de primeros auxilios en sus instalaciones.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon-wrap"><i class="fas fa-hard-hat"></i></div>
+                    <h3>Salud Ocupacional</h3>
+                    <p>Prevención de riesgos laborales, ergonomía, vigilancia epidemiológica y cumplimiento normativo.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon-wrap"><i class="fas fa-stethoscope"></i></div>
+                    <h3>Medicina Ocupacional</h3>
+                    <p>Atención médica especializada en salud laboral directamente en sus instalaciones, con enfoque preventivo y curativo.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-3">
+                    <div class="service-icon-wrap"><i class="fas fa-apple-alt"></i></div>
+                    <h3>Nutrición</h3>
+                    <p>Valoraciones personalizadas, control de medidas y educación en hábitos de alimentación saludable.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon-wrap"><i class="fas fa-running"></i></div>
+                    <h3>Terapia Física</h3>
+                    <p>Diagnóstico y rehabilitación de afecciones músculo-esqueléticas y pausas activas corporativas.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon-wrap"><i class="fas fa-ambulance"></i></div>
+                    <h3>Ambulancia y Emergencias</h3>
+                    <p>Soporte de ambulancia y manejo avanzado de emergencias en sitio 24/7 mediante alianzas estratégicas.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-3">
+                    <div class="service-icon-wrap"><i class="fas fa-tooth"></i></div>
+                    <h3>Odontología</h3>
+                    <p>Unidad odontológica que se desplaza a sus instalaciones con servicios de odontología general y ortodoncia.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon-wrap"><i class="fas fa-fire-extinguisher"></i></div>
+                    <h3>Capacitación de Brigadas</h3>
+                    <p>Cursos de RCP y DEA para la formación de brigadas de emergencia en su empresa. Personal certificado y listo para actuar.</p>
+                </div>
+            </div>
+
+            <!-- Tab 3: Especializados -->
+            <div id="tab-especializados" class="tab-content services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap"><i class="fas fa-flask"></i></div>
+                    <h3>Laboratorio Clínico</h3>
+                    <p>Laboratorio móvil que toma muestras directamente en el sitio de trabajo, evitando traslados innecesarios.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon-wrap"><i class="fas fa-ear-listen"></i></div>
+                    <h3>Audiología</h3>
+                    <p>Audiometrías in situ para empresas con niveles de ruido perjudiciales. Prevención y detección temprana.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon-wrap"><i class="fas fa-lungs"></i></div>
+                    <h3>Espirometrías</h3>
+                    <p>Para empresas con exposición a polvo, químicos y partículas. Diagnóstico con alta tecnología.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-3">
+                    <div class="service-icon-wrap"><i class="fas fa-eye"></i></div>
+                    <h3>Optometría</h3>
+                    <p>Valoración visual móvil. Imprescindible para garantizar el rendimiento y seguridad de los empleados.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon-wrap"><i class="fas fa-x-ray"></i></div>
+                    <h3>Radiología y Ultrasonidos</h3>
+                    <p>Radiografías portátiles y ultrasonidos directamente en el centro de trabajo con precios preferenciales.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon-wrap"><i class="fas fa-vial"></i></div>
+                    <h3>Pruebas Doping</h3>
+                    <p>Pruebas toxicológicas aleatorias, bajo sospecha o como requisito de ingreso para mitigar riesgos operativos.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-3">
+                    <div class="service-icon-wrap"><i class="fas fa-microscope"></i></div>
+                    <h3>Citologías</h3>
+                    <p>Toma de muestras citológicas en sitio para detección temprana y seguimiento preventivo de la salud femenina.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUÉ OCCUMED -->
+    <section id="porque">
+        <div class="porque-inner">
+            <div class="porque-header">
+                <p class="section-label reveal">Nuestra diferencia</p>
+                <h2 class="section-title reveal">¿Por qué elegir OccuMED?</h2>
+                <div class="divider reveal"></div>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i class="fas fa-ear-listen"></i></div>
+                    <div class="benefit-text">
+                    <h4>Te Escuchamos Primero</h4>
+                    <p>Nos tomamos el tiempo de entender a fondo las necesidades de su empresa antes de proponer cualquier solución. Su realidad es nuestro punto de partida.</p>
+                    </div>
+                </div>
+                <div class="benefit-card reveal reveal-delay-1">
+                    <div class="benefit-icon"><i class="fas fa-sliders-h"></i></div>
+                    <div class="benefit-text">
+                    <h4>Propuestas a la Medida</h4>
+                    <p>Diseñamos planes de salud adaptados a las necesidades y al presupuesto de cada empresa. No hay soluciones genéricas: cada cliente recibe una propuesta única.</p>
+                    </div>
+                </div>
+                <div class="benefit-card reveal reveal-delay-2">
+                    <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                    <div class="benefit-text">
+                    <h4>Servicio Cercano y Personalizado</h4>
+                    <p>Mantenemos una relación directa y continua con nuestros clientes. Somos un aliado de confianza, no solo un proveedor de servicios.</p>
+                    </div>
+                </div>
+                <div class="benefit-card reveal reveal-delay-3">
+                    <div class="benefit-icon"><i class="fas fa-award"></i></div>
+                    <div class="benefit-text">
+                    <h4>Respaldo Ético y Profesional</h4>
+                    <p>Todos nuestros profesionales están inscritos y reconocidos por sus respectivos Colegios Profesionales, garantizando idoneidad técnica y ética.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="contacto-inner">
+            <div class="contacto-info">
+                <p class="section-label reveal">Hablemos</p>
+                <h2 class="reveal">Permítanos ser su <span>aliado estratégico</span></h2>
+                <div class="divider reveal"></div>
+                <p class="reveal">Estamos listos para diseñar una solución de salud empresarial a la medida de su organización. Contáctenos hoy.</p>
+
+                <div class="contact-items">
+                    <div class="contact-item reveal">
+                    <div class="contact-item-icon"><i class="fas fa-user-md"></i></div>
+                    <div class="contact-item-text">
+                    <strong>Gerente General</strong>
+                    Dr. Gustavo Segura Montero
+                    </div>
+                    </div>
+                    <div class="contact-item reveal reveal-delay-1">
+                    <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+                    <div class="contact-item-text">
+                    <strong>Teléfono</strong>
+                    7016-0498 / 2285-3167
+                    </div>
+                    </div>
+                    <div class="contact-item reveal reveal-delay-2">
+                    <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-item-text">
+                    <strong>Correo</strong>
+                    info@occumedcr.com
+                    </div>
+                    </div>
+                    <div class="contact-item reveal reveal-delay-3">
+                    <div class="contact-item-icon"><i class="fas fa-globe"></i></div>
+                    <div class="contact-item-text">
+                    <strong>Sitio Web</strong>
+                    www.occumedcr.net
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form reveal reveal-delay-2">
+                <p class="form-title">Solicitar información</p>
+                <div id="success-msg" style="display:none; background:#d1fae5; border:1px solid #6ee7b7; border-radius:12px; padding:20px; text-align:center; margin-bottom:20px;">
+                    <i class="fas fa-check-circle" style="color:#059669; font-size:28px; margin-bottom:10px; display:block;"></i>
+                    <p style="color:#065f46; font-family:'Montserrat',sans-serif; font-weight:700; margin-bottom:4px;">Solicitud enviada con exito!</p>
+                    <p style="color:#047857; font-size:14px;">Nos pondremos en contacto con usted a la brevedad.</p>
+                    <button onclick="resetForm()" style="margin-top:14px; background:none; border:1px solid #059669; color:#059669; padding:8px 20px; border-radius:20px; cursor:pointer; font-family:'Montserrat',sans-serif; font-size:13px; font-weight:600;">Enviar otra solicitud</button>
+                </div>
+                <div id="error-msg" style="display:none; background:#fee2e2; border:1px solid #fca5a5; border-radius:12px; padding:16px; text-align:center; margin-bottom:20px;">
+                    <p style="color:#991b1b; font-family:'Montserrat',sans-serif; font-size:14px; font-weight:600;">Hubo un error al enviar. Por favor intente de nuevo.</p>
+                </div>
+                <form id="contact-form" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contacto">
+                <input name="bot-field" style="display:none">
+                <div class="form-row">
+                    <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" placeholder="Su nombre" required>
+                    </div>
+                    <div class="form-group">
+                    <label>Empresa</label>
+                    <input type="text" name="empresa" placeholder="Nombre de la empresa" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Correo Electronico</label>
+                    <input type="email" name="email" placeholder="correo@empresa.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Servicio de Interes</label>
+                    <select name="servicio">
+                    <option value="">Seleccione un servicio...</option>
+                    <option>Wellness Empresarial</option>
+                    <option>Medicina General In Situ</option>
+                    <option>Psicologia</option>
+                    <option>Ferias de Salud</option>
+                    <option>Valoraciones Pre-Empleo</option>
+                    <option>Salud Ocupacional</option>
+                    <option>Otro servicio</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mensaje</label>
+                    <textarea name="mensaje" placeholder="Cuentenos sobre su empresa y sus necesidades..."></textarea>
+                </div>
+                <button type="submit" id="submit-btn" class="btn-submit">Enviar Solicitud <i class="fas fa-arrow-right"></i></button>
+                </form>
+
+                <button class="btn-submit">Enviar Solicitud  <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div>
+                    <img src="logo.png" alt="OccuMED" style="height: 38px; width: auto; filter: brightness(0) invert(1); display: block; margin-bottom: 6px;">
+                    <div class="footer-tagline">Aliados en Salud Empresarial</div>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 OccuMED — Occupational Medical Services S.A. | Costa Rica</span>
+                <span style="color: var(--dorado); font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1px;">SOMOS SU MEJOR OPCIÓN EN PRECIO Y CALIDAD</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const ham = document.getElementById('hamburger');
+            menu.classList.toggle('open');
+            ham.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Tabs
+        function showTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + tab).classList.add('active');
+            event.target.classList.add('active');
+
+            // Re-trigger animations
+            document.querySelectorAll('#tab-' + tab + ' .reveal').forEach(el => {
+                el.classList.remove('visible');
+                setTimeout(() => el.classList.add('visible'), 50);
+            });
+        }
+    </script>
+
+    <!-- Schema Markup — MedicalOrganization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "OccuMED",
+      "alternateName": "Occupational Medical Services S.A.",
+      "description": "OccuMED brinda servicios de medicina de empresa, salud ocupacional y bienestar empresarial en Costa Rica. Atención médica in situ, ferias de salud, psicología laboral y más.",
+      "url": "https://occumedcr.net",
+      "logo": "https://occumedcr.net/logo.png",
+      "image": "https://occumedcr.net/logo.png",
+      "telephone": ["+506 7016-0498", "+506 2285-3167"],
+      "email": "info@occumedcr.com",
+      "foundingDate": "2013",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CR",
+        "addressRegion": "San José",
+        "addressLocality": "San José"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Costa Rica"
+      },
+      "medicalSpecialty": "OccupationalMedicine",
+      "availableService": [
+        { "@type": "MedicalTherapy", "name": "Medicina General In Situ" },
+        { "@type": "MedicalTherapy", "name": "Salud Ocupacional" },
+        { "@type": "MedicalTherapy", "name": "Medicina Ocupacional" },
+        { "@type": "MedicalTherapy", "name": "Psicología Empresarial" },
+        { "@type": "MedicalTherapy", "name": "Ferias de Salud Empresarial" },
+        { "@type": "MedicalTherapy", "name": "Valoraciones Pre-Empleo" },
+        { "@type": "MedicalTherapy", "name": "Enfermería Ocupacional" },
+        { "@type": "MedicalTherapy", "name": "Nutrición Empresarial" },
+        { "@type": "MedicalTherapy", "name": "Terapia Física" },
+        { "@type": "MedicalTherapy", "name": "Wellness Empresarial" }
+      ]
+    }
+    </script>
+
+    <!-- Schema Markup — FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es la medicina de empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La medicina de empresa es una especialidad médica que se ocupa de la salud de los trabajadores dentro de su entorno laboral. Un médico de empresa como los de OccuMED visita directamente las instalaciones para brindar atención preventiva y curativa a los colaboradores."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿En qué zonas de Costa Rica brindan sus servicios?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OccuMED brinda servicios de salud empresarial en todo Costa Rica. Nos desplazamos directamente a las instalaciones de su empresa, sin importar la ubicación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué incluye una feria de salud empresarial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestras ferias de salud empresarial incluyen múltiples especialistas en un solo evento: medicina general, laboratorio clínico, nutrición, terapia física, odontología, optometría y más, todo dentro de las instalaciones de su empresa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo lleva OccuMED en el mercado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OccuMED cuenta con más de 13 años de experiencia en medicina de empresa y salud ocupacional en Costa Rica, con clientes en sectores como tecnología, industria, servicios y construcción."
+          }
+        }
+      ]
+    }
+    </script>
+
+<!-- ▸ BOTÓN FLOTANTE DE WHATSAPP -->
+<a href="https://wa.me/50670160498?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20servicios%20de%20OccuMED" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   style="
+     position: fixed;
+     bottom: 28px;
+     right: 28px;
+     z-index: 9999;
+     background-color: #25D366;
+     color: #FFFFFF;
+     border-radius: 50px;
+     padding: 14px 22px;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     text-decoration: none;
+     font-family: Arial, sans-serif;
+     font-size: 15px;
+     font-weight: 600;
+     box-shadow: 0 4px 16px rgba(37,211,102,0.45);
+     transition: background-color 0.2s ease, transform 0.2s ease;
+   "
+   onmouseover="this.style.backgroundColor='#1ebe57'; this.style.transform='scale(1.05)';"
+   onmouseout="this.style.backgroundColor='#25D366'; this.style.transform='scale(1)';"
+   aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="white">
+    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+  </svg>
+  Escribinos
+</a>
+<!-- ▸ FIN BOTÓN WHATSAPP -->
+</body>
+</html>
