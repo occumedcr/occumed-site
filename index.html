@@ -638,47 +638,6 @@
             line-height: 1.7;
         }
 
-        /* ==== CLIENTES ==== */
-        #clientes {
-            background: var(--blanco);
-            padding: 80px 60px;
-        }
-
-        .clientes-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-top: 50px;
-        }
-
-        .client-chip {
-            background: linear-gradient(135deg, #f8f9fb, #eef0f5);
-            border: 1px solid rgba(43,55,85,0.1);
-            border-radius: 12px;
-            padding: 22px 16px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--azul-oscuro);
-            letter-spacing: 0.5px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .client-chip:hover {
-            background: var(--azul-oscuro);
-            color: white;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 25px rgba(43,55,85,0.2);
-            border-color: var(--azul-oscuro);
-        }
-
         /* ==== POR QUÉ OCCUMED ==== */
         #porque {
             background: linear-gradient(135deg, var(--azul-oscuro) 0%, #1e263d 100%);
@@ -1109,10 +1068,6 @@
             .tabs { gap: 8px; }
             .tab-btn { font-size: 12px; padding: 9px 16px; }
 
-            /* Clientes */
-            .clients-grid { grid-template-columns: repeat(2, 1fr); }
-            #clientes { padding: 70px 24px; }
-
             /* Por qué OccuMED */
             .benefits-grid { grid-template-columns: 1fr; }
 
@@ -1144,7 +1099,6 @@
             .hero-title { font-size: 30px; }
             .section-title { font-size: 24px; }
             .stats-row { grid-template-columns: 1fr; }
-            .clients-grid { grid-template-columns: 1fr 1fr; }
             .visual-card { padding: 30px 22px; }
             .visual-card-title { font-size: 22px; }
         }
@@ -1156,7 +1110,6 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a>
         <a href="#servicios" onclick="closeMobileMenu()">Servicios</a>
-        <a href="#clientes" onclick="closeMobileMenu()">Clientes</a>
         <a href="#porque" onclick="closeMobileMenu()">¿Por qué OccuMED?</a>
         <a href="#contacto" class="mobile-cta" onclick="closeMobileMenu()">Contáctenos</a>
     </div>
@@ -1169,7 +1122,6 @@
         <ul class="nav-links">
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#clientes">Clientes</a></li>
             <li><a href="#porque">¿Por qué OccuMED?</a></li>
             <li><a href="#contacto" class="nav-cta">Contáctenos</a></li>
         </ul>
@@ -1403,28 +1355,6 @@
         </div>
     </section>
 
-    <!-- CLIENTES -->
-    <section id="clientes">
-        <div class="clientes-inner">
-            <p class="section-label reveal">Trayectoria comprobada</p>
-            <h2 class="section-title reveal">Empresas que confían<br>en OccuMED</h2>
-            <div class="divider reveal"></div>
-            <p class="section-desc reveal" style="margin: 0 auto;">Hemos consolidado relaciones a largo plazo con líderes del mercado costarricense en distintos sectores.</p>
-
-            <div class="clients-grid">
-                <div class="client-chip reveal reveal-delay-1">TELEPERFORMANCE</div>
-                <div class="client-chip reveal reveal-delay-2">COSTA RICA COUNTRY CLUB</div>
-                <div class="client-chip reveal reveal-delay-3">CEMENTOS PROGRESO</div>
-                <div class="client-chip reveal reveal-delay-4">INGETEC</div>
-                <div class="client-chip reveal reveal-delay-1">DISTRIBUIDORA LUCEMA</div>
-                <div class="client-chip reveal reveal-delay-2">GRUPO NÍTIDOS</div>
-                <div class="client-chip reveal reveal-delay-3">SALSAS ALFARO</div>
-                <div class="client-chip reveal reveal-delay-4">K-9 INTERNACIONAL</div>
-                <div class="client-chip reveal reveal-delay-1">GRANJA ROBLEALTO</div>
-            </div>
-        </div>
-    </section>
-
     <!-- POR QUÉ OCCUMED -->
     <section id="porque">
         <div class="porque-inner">
@@ -1572,7 +1502,6 @@
                 <ul class="footer-links">
                     <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#clientes">Clientes</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
